@@ -1,32 +1,56 @@
 #include <stdio.h>
 
 // Desafio de Xadrez - MateCheck
-// Este código inicial serve como base para o desenvolvimento do sistema de movimentação das peças de xadrez.
-// O objetivo é utilizar estruturas de repetição e funções para determinar os limites de movimentação dentro do jogo.
+// Nível Novato
 
 int main() {
-    // Nível Novato - Movimentação das Peças
-    // Sugestão: Declare variáveis constantes para representar o número de casas que cada peça pode se mover.
-
-    // Implementação de Movimentação do Bispo
-    // Sugestão: Utilize uma estrutura de repetição para simular a movimentação do Bispo em diagonal.
-
-    // Implementação de Movimentação da Torre
-    // Sugestão: Utilize uma estrutura de repetição para simular a movimentação da Torre para a direita.
-
-    // Implementação de Movimentação da Rainha
-    // Sugestão: Utilize uma estrutura de repetição para simular a movimentação da Rainha para a esquerda.
-
-    // Nível Aventureiro - Movimentação do Cavalo
-    // Sugestão: Utilize loops aninhados para simular a movimentação do Cavalo em L.
-    // Um loop pode representar a movimentação horizontal e outro vertical.
-
-    // Nível Mestre - Funções Recursivas e Loops Aninhados
-    // Sugestão: Substitua as movimentações das peças por funções recursivas.
-    // Exemplo: Crie uma função recursiva para o movimento do Bispo.
-
-    // Sugestão: Implemente a movimentação do Cavalo utilizando loops com variáveis múltiplas e condições avançadas.
-    // Inclua o uso de continue e break dentro dos loops.
-
+    int rainha, bispo, torre;
+    int casa = 0;
+    int peca;
+    //inicialização das variaveis
+    
+    printf("---Bem vindo ao jogo de Xadrez---\n");
+    printf("Vamos mostrar o movimento das seguintes peças:\n");
+    printf("1 - Rainha\n");
+    printf("2 - Bispo\n");
+    printf("3 - Torre\n");
+    printf("Escolha qual número de peça deseja ver sua movimentação: ");
+    scanf("%d", &peca);
+    //Menu destinado a escolha da peça que o usuario deseja verificar o movimento.
+    switch (peca){
+    case 1:
+        printf("---Rainha escolhida---\n");
+        for (casa = 0; casa < 8; casa++){
+            printf("Esquerda\n");
+        }
+        printf("---Movimento finalizado---\n");
+    //Movimento da Rainha.
+    //OBS:Essa movimentação da rainha, não faz muito sentido pois o tabuleiro não permitiria se movimentar
+    //8 vezes para a esquerda, já que o maximo possivel seria 7. Porém como foi solicitado esse valor,
+    //foi feito.
+    break;
+    case 2:
+        while (casa < 5)
+        {
+            printf("Cima | Direita\n");
+            casa++;
+        }
+        printf("---Movimento finalizado---\n");
+    //Movimento do Bispo.
+    break;
+    case 3:
+        do
+        {
+            printf("Direita\n");
+            casa++;
+        } while (casa < 5);
+        printf("---Movimento finalizado---\n");
+    //Movimento da Torre
+    break;
+    default:
+        printf("Opção Inválida");
+        break;
+    //Caso usuario digite uma opção invalida o codigo é finalizado.
+    }
     return 0;
 }
