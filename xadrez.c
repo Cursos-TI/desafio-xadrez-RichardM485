@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 // Desafio de Xadrez - MateCheck
-// Nível Novato
+// Nível Aventureiro
 
 int main() {
     int rainha, bispo, torre;
