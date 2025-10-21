@@ -1,13 +1,45 @@
 #include <stdio.h>
 
 // Desafio de Xadrez - MateCheck
-// Nível Aventureiro
+// Nível Mestre
+
+void MovRainha(int rainha){
+    if (rainha > 0){
+    printf("Esquerda\n");
+    MovRainha(rainha - 1);
+    }
+}
+//Função da Rainha
+
+void MovBispo(int bispo){
+    int casa = 0;
+    //variavel de controle para a função
+    if (bispo > 0){
+        for (int i = 0; i < 1; i++){
+        printf("Direita\n");
+            while (casa < 1){
+            printf("Cima\n");
+            casa++;
+            }
+        }
+    MovBispo(bispo - 1);
+    }
+}
+//Função do Bispo
+
+void MovTorre(int torre){
+    if (torre > 0){
+    printf("Direita\n");
+    MovTorre(torre - 1);
+    }
+}
+//Função da Torre
 
 int main() {
-    int rainha, bispo, torre;
     int casa = 0;
     int peca;
     int i = 0;
+    int j = 0;
     //inicialização das variaveis
     
     printf("---Bem vindo ao jogo de Xadrez---\n");
@@ -22,46 +54,41 @@ int main() {
     switch (peca){
     case 1:
         printf("---Rainha escolhida---\n");
-        for (casa = 0; casa < 8; casa++){
-            printf("Esquerda\n");
-        }
+        MovRainha(8);
         printf("---Movimento finalizado---\n");
-    //Movimento da Rainha.
+        return 0;
+        //Movimento da Rainha.
     //OBS:Essa movimentação da rainha, não faz muito sentido pois o tabuleiro não permitiria se movimentar
     //8 vezes para a esquerda, já que o maximo possivel seria 7. Porém como foi solicitado esse valor,
     //foi feito.
     break;
     case 2:
         printf("---Bispo escolhido---\n");
-        while (casa < 5)
-        {
-            printf("Cima | Direita\n");
-            casa++;
-        }
+        MovBispo(5);
         printf("---Movimento finalizado---\n");
-    //Movimento do Bispo.
+        return 0;
+        //Movimento do Bispo
     break;
     case 3:
         printf("---Torre escolhida---\n");
-        do
-        {
-            printf("Direita\n");
-            casa++;
-        } while (casa < 5);
+        MovTorre(5);
         printf("---Movimento finalizado---\n");
+        return 0;
     //Movimento da Torre
     break;
     case 4:
         printf("---Cavalo escolhido---\n");
-        for (i = 0; i < 2; i++);
-        {
+        for (i = 0, j = 0; i < 1 && j < 2; i++,j++){
             while (casa < 2)
             {
-                printf("Baixo\n");
+                printf("Cima\n");
                 casa++;
             }
-            printf("Esquerda\n");
+            printf("Direita\n");
+            if (j == 1) break;
         }
+        printf("---Movimento finalizado---\n");
+        return 0;
     //Movimento do cavalo
     break;
     default:
